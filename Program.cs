@@ -1,4 +1,4 @@
-﻿
+
 // Note: The Azure OpenAI client library for .NET is in preview.
 // Install the .NET library via NuGet: dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.5
 using Azure;
@@ -9,7 +9,7 @@ DotEnv.Load();
 
 // 1. Create a new OpenAIClient instance with the endpoint and AzureKeyCredential.
 OpenAIClient client = new OpenAIClient(
-  new Uri("https://openai-nextflow.openai.azure.com/"),
+  new Uri(Environment.GetEnvironmentVariable("AZURE_OPENAI_URL")),
   new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY")));
 
 
